@@ -4,10 +4,11 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    hello: "hi!"
-  });
+router.get("/get-date-time", (req, res) => {
+  var datetime = new Date();
+  var hours = datetime.getHours();
+  var date = datetime.getFullYear()+''+(datetime.getMonth()+1)+''+datetime.getDate();
+  res.json({"hours": hours, "date": date});
 });
 
 app.use(`/.netlify/functions/api`, router);

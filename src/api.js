@@ -11,7 +11,6 @@ router.get("/get-date-time", (req, res) => {
   res.json({"hours": hours, "date": date});
 });
 
-// Get last 7 days
 router.get("/get-last-seven-days", (req, res) => {
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date()

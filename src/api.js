@@ -15,8 +15,8 @@ router.get("/get-last-seven-days", (req, res) => {
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date()
     d.setDate(d.getDate() - i)
-    d.toString().substr(0, 9)
-    return d
+    var subed = d.toString().substr(0, 9)
+    return subed
   })
   res.json(dates);
 });

@@ -14,7 +14,8 @@ router.get("/get-date-time", (req, res) => {
 router.get("/get-last-seven-days", (req, res) => {
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date()
-    d.setDate((d.getFullYear() - i) + (d.getMonth - i) + (d.getDay - i))
+    d.setDate(d.getDate() - i)
+    d.toString().substr(0, 9)
     return d
   })
   res.json(dates);

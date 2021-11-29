@@ -11,6 +11,15 @@ router.get("/get-date-time", (req, res) => {
   res.json({"hours": hours, "date": date});
 });
 
+router.get("/get-last-seven-days", (req, res) => {
+  const dates = [...Array(7)].map((_, i) => {
+    const d = new Date()
+    d.setDate(d.getDate() - i)
+    return d
+  })
+  res.json(dates);
+});
+
 app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;

@@ -15,7 +15,6 @@ router.get("/get-last-seven-days", (req, res) => {
 	
   function parser(elem) {
 	  let parsed = elem.substring(0, 9);
-	  parsed = parsed.replace(/-/g, '');
 	  
 	  return parsed;
   }	

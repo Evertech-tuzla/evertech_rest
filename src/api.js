@@ -12,20 +12,12 @@ router.get("/get-date-time", (req, res) => {
 });
 
 router.get("/get-last-seven-days", (req, res) => {
-	
-  function parser(elem) {
-	  let parsed = elem.toString().substring(0, 9);
-	  
-	  return parsed;
-  }	
-	
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date()
     d.setDate(d.getDate() - i)
     return d
   })
-  const datesParsed = dates.map(parser);
-  res.json(datesParsed);
+  res.json(dates);
 });
 
 app.use(`/.netlify/functions/api`, router);

@@ -14,7 +14,7 @@ router.get("/get-date-time", (req, res) => {
 router.get("/get-last-seven-days", (req, res) => {
 	
   function parser(elem) {
-	  let parsed = elem.substring(0, 9);
+	  let parsed = elem.toString().substring(0, 9);
 	  
 	  return parsed;
   }	
@@ -24,7 +24,7 @@ router.get("/get-last-seven-days", (req, res) => {
     d.setDate(d.getDate() - i)
     return d
   })
-  const datesParsed = dates.map(parser)
+  const datesParsed = dates.map(parser);
   res.json(datesParsed);
 });
 

@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/get-date-time", (req, res) => {
   var datetime = new Date();
   var hours = datetime.getHours();
-  var date = datetime.setDate(d.getDate())
+  var date = datetime.setDate(datetime .getDate())
   res.json({"hours": hours, "date": moment(date).format('YYYYMMDD')});
 });
 

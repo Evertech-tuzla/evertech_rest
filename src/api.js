@@ -1,6 +1,5 @@
 const express = require("express");
 const serverless = require("serverless-http");
-const moment = require("moment");
 
 const app = express();
 const router = express.Router();
@@ -18,7 +17,9 @@ router.get("/get-last-seven-days", (req, res) => {
     d.setDate(d.getDate() - i)
     return moment(d).format('YYYYMMDD')
   })
-  res.json(dates);
+  res.json(
+    {"lastSevenDays": dates}
+    );
 });
 
 app.use(`/.netlify/functions/api`, router);

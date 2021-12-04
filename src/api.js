@@ -8,8 +8,8 @@ const router = express.Router();
 router.get("/get-date-time", (req, res) => {
   var datetime = new Date();
   var hours = datetime.getHours();
-  var date = datetime.getFullYear()+''+(datetime.getMonth()+1)+''+datetime.getDate();
-  res.json({"hours": hours, "date": date});
+  var date = datetime.setDate(d.getDate())
+  res.json({"hours": hours, "date": moment(date).format('YYYYMMDD')});
 });
 
 router.get("/get-last-seven-days", (req, res) => {
